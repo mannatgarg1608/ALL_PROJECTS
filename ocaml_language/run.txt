@@ -1,0 +1,11 @@
+ocamlc -c ast.ml
+menhir --ocamlc "ocamlc -c" --explain --infer parser.mly
+ocamllex lexer.mll
+ocamlc -c token.ml
+ocamlc -c parser.mli
+ocamlc -c parser.ml
+ocamlc -c lexer.ml
+ocamlc -c function.ml
+ocamlc -c interpreter.ml
+ocamlc -c main3.ml
+ocamlc -o my_interpreter token.cmo ast.cmo parser.cmo lexer.cmo function.cmo interpreter.cmo main3.cmo
