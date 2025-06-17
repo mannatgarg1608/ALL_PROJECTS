@@ -1,0 +1,3 @@
+addi x5 x0 2;IF;ID;EX;MEM;WB;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  
+addi x6 x0 2;  ;IF;ID;EX;MEM;WB;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  
+slli x7 x5 4;  ;  ;IF;ID;EX;MEM;WB;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  
