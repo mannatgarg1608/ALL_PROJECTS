@@ -1,0 +1,21 @@
+00000293        addi x5 x0 0       # swapped = false
+00100313        addi x6 x0 1       # i = 1
+0065d463        bge x6 x11 8       # if i >= size, exit for loop
+00800393        addi x7 x0 8       # sizeof(long) = 8
+027303b3        mul x7 x6 x7       # i*8
+00a383b3        add x7 x7 x10      # &list[i]
+ff838293        addi x5 x7 -8      # &list[i-1]
+0002ae03        lw x28 0(x5)       # load list[i-1] low word
+0042ae83        lw x29 4(x5)       # load list[i-1] high word
+0003a303        lw x6 0(x7)        # load list[i] low word
+0043a383        lw x7 4(x7)        # load list[i] high word
+03ce5463        bge x6 x28 8       # if list[i-1] <= list[i], skip swap
+00100293        addi x5 x0 1       # swapped = true
+0063a023        sw x6 0(x7)        # store list[i] low word
+0073a223        sw x7 4(x7)        # store list[i] high word
+01c2a023        sw x28 0(x5)       # store list[i-1] low word
+01d2a223        sw x29 4(x5)       # store list[i-1] high word
+00130313        addi x6 x6 1       # i++
+f9dff06f        jal x0 -100        # jump back to inner loop
+00029463        bne x5 x0 8          # if swapped != 0, repeat
+00008067        jalr x0 0(x1)       # return

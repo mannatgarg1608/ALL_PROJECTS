@@ -1,0 +1,12 @@
+00000293        addi x5 x0 0       # t0 = 0 (ret)
+00000313        addi x6 x0 0       # t1 = 0 (i)
+0065d463        bge x6 x11 8       # if i >= size, exit loop
+00400393        addi x7 x0 4       # temp = 4 (for multiplication)
+026383b3        mul x7 x6 x7       # i*4 (t2 = x7)
+00f507b3        add x15 x10 x7     # a[i] address
+0007a783        lw x15 0(x15)      # load a[i]
+00f282b3        add x5 x5 x15      # ret += a[i]
+00130313        addi x6 x6 1       # i++
+ff1ff06f        jal x0 -16         # jump back to loop start
+00550533        add x10 x10 x5     # a0 = ret
+00008067        jalr x0 0(x1)      # return

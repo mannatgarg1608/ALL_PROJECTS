@@ -1,0 +1,7 @@
+0005c303        lw x6 0(x11)       # load byte from source
+00650023        sw x6 0(x10)       # store byte to destination
+00030663        beq x6 x0 12         # branch if null terminator
+00150513        addi x10 x10 1     # increment dest pointer
+00158593        addi x11 x11 1     # increment src pointer
+ff5ff06f        jal x0 -12         # jump to start of loop
+00008067        jalr x0 0(x1)       # return from function
